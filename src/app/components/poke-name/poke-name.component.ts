@@ -24,6 +24,10 @@ export class PokeNameComponent implements OnInit {
     });
   }
 
+  /**
+   * @description function used to set the selected pokemon and navigate to details view
+   * @param pokemon contains the details of selected pokemon
+   */
   getSelectedPokemon(pokemon) {
     this.pokeService.setCurrentPokemon(pokemon);
     this.router.navigate(['details', pokemon.id]);

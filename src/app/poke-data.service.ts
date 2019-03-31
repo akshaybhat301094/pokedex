@@ -12,14 +12,25 @@ export class PokeDataService {
 
   constructor(private router: Router) {}
 
+  /**
+   * @description function used as a getter for pokemon data
+   */
   getPokemon() {
     return PokeData;
   }
 
+  /**
+   * @description function used to set the current pokemon for view
+   * @param pokemon contains selected pokemon details
+   */
   setCurrentPokemon(pokemon) {
     this.currentPokemon = new PokeModel(pokemon);
   }
 
+  /**
+   * @description used to update the value of the selected pokemon
+   * @param pokemon contains selected pokemon details
+   */
   updatePokemon(pokemon) {
     const tempPoke = PokeData.find((poke) => {
       return poke.id === pokemon.id;
@@ -28,6 +39,11 @@ export class PokeDataService {
     PokeData[index] = pokemon;
   }
 
+  /**
+   * @description function used to create a new pokemon
+   * @param data contains details of new pokemon
+   * @param type contains the type of new pokemon
+   */
   createNewPokemon(data, type) {
     const tempPokeObj = {
       'id': PokeData.length + 1,

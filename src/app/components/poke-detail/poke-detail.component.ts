@@ -31,15 +31,25 @@ export class PokeDetailComponent implements OnInit {
     });
   }
 
+  /**
+   * @description function used to toggle between edit mode and normal mode
+   */
   editData() {
     this.isEditMode = !this.isEditMode;
   }
 
-  submitData(event) {
+  /**
+   * @description function used to update the edited pokemon value
+   */
+  submitData() {
     this.pokeService.updatePokemon(this.selectedPokemon);
     this.isEditMode = false;
   }
 
+  /**
+   * @description function used to determine the users entry for type of pokemon
+   * @param type contains the value of type of pokemon
+   */
   addType(type) {
     if (type !== '' && type !== undefined) {
       this.selectedPokemon.type.push(type);
@@ -47,6 +57,10 @@ export class PokeDetailComponent implements OnInit {
     }
   }
 
+  /**
+   * @description function used to remove the type of pokemon
+   * @param type contains the value for type of pokemon
+   */
   removeType(type) {
     const selectedType = this.selectedPokemon.type.indexOf(type);
     if (this.selectedPokemon.type.length > 0) {

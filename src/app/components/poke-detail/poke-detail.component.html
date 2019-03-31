@@ -42,7 +42,7 @@
 <div class="container" *ngIf="isEditMode">
   <div class="details">
     <span class="close-edit" (click)="isEditMode = false">X</span>
-    <form #pokeForm="ngForm" (ngSubmit)="submitData(pokeForm.value)">
+    <form #pokeForm="ngForm" (ngSubmit)="submitData()">
       <div class="pokeName">
         <div class="poke_text">POKE NAME</div>
         <input type="text" class="poke_input" name="firstname" [(ngModel)]="selectedPokemon.name.english" autofocus>

@@ -13,6 +13,10 @@ export class PokeHomeComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * @description this function navigates the user to appropriate screen;
+   * @param event contains value that defines where should the user navigate to
+   */
   navigateTo(event) {
     if (event === 'all') {
       this.router.navigate(['all']);

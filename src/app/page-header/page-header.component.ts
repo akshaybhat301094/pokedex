@@ -23,6 +23,10 @@ export class PageHeaderComponent implements OnInit {
     });
   }
 
+  /**
+   * @description function used to select navigate to the appropriate pokemon view from dropdown.
+   * @param pokemon contains the details of the selected value in dropdown
+   */
   selectPokemon(pokemon) {
     this.pokeService.currentPokemon = pokemon;
     this.searchText = '';
