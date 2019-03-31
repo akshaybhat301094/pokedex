@@ -1,0 +1,29 @@
+@import '../../../assets/variables';
+.wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    .pokeName {
+        width: 24%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border: 1px solid $color-black;
+        text-transform: uppercase;
+    }
+    .pokeName:hover{
+        background: $color-black;
+        color: $color-white;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .wrapper{
+        .pokeName{
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,6 @@
+
+<div class="wrapper">
+  <div *ngFor="let pokemon of pokeData" class="pokeName" (click)="getSelectedPokemon(pokemon)">
+    {{pokemon.name.english}}
+  </div>
+</div>

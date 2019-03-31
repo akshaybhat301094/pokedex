@@ -1,0 +1,15 @@
+<header class="header">
+  <div class="header-container" routerLink="home">
+    <img src="assets/pokeball.png" alt="pokeball logo">
+    <h2>POKEDEX</h2>
+  </div>
+
+  <div class="searchBar">
+    <input type="text" [(ngModel)]="searchText" placeholder="search your pokemon here">
+    <ul *ngIf="searchText !== undefined && searchText !== ''">
+        <li *ngFor="let pokemon of pokemonList | filter : searchText" (click)="selectPokemon(pokemon)">
+          {{pokemon.name.english}}
+        </li>
+      </ul>
+  </div>
+</header>

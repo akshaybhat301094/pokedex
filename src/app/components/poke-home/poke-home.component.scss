@@ -1,0 +1,73 @@
+@import '../../../assets/variables';
+.container{
+    width: 100%;
+    height: calc(100vh - 70px);
+    position: relative;
+    .details {
+        width: 500px;
+        height: 500px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        text-transform: uppercase;
+        border-radius: 50px;
+        box-shadow: 0px 1px 35px -15px;
+        border: 1px solid $color-black;
+
+        .upper {
+            background: $color-red;
+            height: 225px;
+            border-radius: 50px 50px 0 0;
+            cursor: pointer;
+            .showAll {
+                padding-top: 100px;
+                font-size: 30px;
+                font-weight: 700;
+                color: $color-white;
+            }
+            &:hover {
+                background: #ec5457;
+                .showAll{
+                    color: $color-black;
+                }
+            }
+        }
+        .middle {
+            background: $color-black;
+            height: 50px;
+            .circle {
+                position: fixed;
+                background: inherit;
+                height: 100px;
+                width: 100px;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                top: 50%;
+                border-radius: 50%;
+            }
+            .small-circle {
+                height: 50px;
+                width: 50px;
+                background: $color-white;
+            }
+        }
+        .lower {
+            height: 225px;
+            cursor: pointer;
+            .addNew{
+                padding-top: 100px;
+                font-size: 30px;
+                font-weight: 700;
+                color: $color-red;
+            }
+            &:hover {
+                // background: #ec5457;
+                .addNew{
+                    color: $color-black;
+                }
+            }
+        } 
+    }
+}

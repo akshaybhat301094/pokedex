@@ -1,0 +1,85 @@
+<div class="container" *ngIf="!isEditMode">
+  <div class="details" *ngIf="selectedPokemon.name">
+    <div class="upper">
+      <div class="name">{{selectedPokemon.name.english}}</div>
+      <div class="poke-type">
+        <h4>TYPE</h4>
+        <ng-container *ngFor="let type of selectedPokemon.type">
+          <span class="type">
+            {{type}}
+          </span>
+        </ng-container>
+      </div>
+    </div>
+    <div class="middle">
+      <div class="circle"></div>
+      <div class="circle small-circle" (click)="editData()">
+        <span>EDIT</span>
+      </div>
+    </div>
+    <div class="lower">
+      <div class="left">
+        <div class="attack">
+          <h4>ATTACK</h4>
+          <div class="number">
+            {{selectedPokemon.base.attack}}
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="defence">
+          <h4>DEFENSE</h4>
+          <div class="number">
+            {{selectedPokemon.base.defense}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container" *ngIf="isEditMode">
+  <div class="details">
+    <span class="close-edit" (click)="isEditMode = false">X</span>
+    <form #pokeForm="ngForm" (ngSubmit)="submitData(pokeForm.value)">
+      <div class="pokeName">
+        <div class="poke_text">POKE NAME</div>
+        <input type="text" class="poke_input" name="firstname" [(ngModel)]="selectedPokemon.name.english" autofocus>
+      </div>
+
+      <div class="pokeName pokeType">
+        <label class="poke_text">TYPE:</label>
+        <input type="text" name="type" #pokeType [(ngModel)]="typeOfPokemon">
+        <div class="add-btn" (click)="addType(pokeType.value)">+</div>
+      </div>
+
+      <div class="poke-chips">
+        <ng-container *ngFor="let type of selectedPokemon.type">
+          <div class="chips">
+            <span class="type">
+              {{type}}
+            </span>
+            <span class="remove" (click)="removeType(type)">X</span>
+          </div>
+        </ng-container>
+      </div>
+
+      <div class="power-fields">
+        <div class="left-half">
+          <div class="attack">
+            <div class="title">ATTACK</div>
+            <input type="number" name="attackField" [(ngModel)]="selectedPokemon.base.attack">
+          </div>
+        </div>
+        <div class="right-half">
+          <div class="defense">
+            <div class="title">DEFENSE</div>
+            <input type="number" name="defenseField" [(ngModel)]="selectedPokemon.base.defense">
+          </div>
+        </div>
+      </div>
+      <button type="submit">SAVE</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+<div class="wrapper">
+  <div class="form-container">
+    <h2>ADD NEW POKEMON</h2>
+    <div class="form-content">
+      <form #pokeForm="ngForm" (ngSubmit)="addNewPokemon(pokeForm.value)">
+        
+        <div class="name">
+          <label for="pokeName">POKE NAME:</label>
+          <input type="text" id="pokeName" name="pokemonName" placeholder="Please enter the pokemon name" ngModel="Pugglipuff" autofocus>
+        </div>
+        
+        <div class="type">
+          <label for="pokeType">TYPE:</label>
+          <input type="text" id="pokeType" #pokeType name="pokemonType" placeholder="Enter the type and click add" [(ngModel)]="currentPokeType">
+          <span class="addType" (click)="addType(pokeType.value)">Add</span>
+        </div>
+        
+        <div class="chip-type">
+          <ng-container *ngFor="let type of typeOfPokemon; let index = index">
+            <div class="chip">
+              {{type}}
+              <span class="remove" (click)="removeType(index)">X</span>
+            </div>
+          </ng-container>
+        </div>
+
+        <div class="power">
+          <div class="attack-field">
+              <label for="attack">ATTACK LEVEL:</label>
+              <input type="number" id="attack" name="attackLevel" ngModel="50">
+          </div>
+          <div class="defense-field">
+              <label for="defense">DEFENSE LEVEL:</label>
+              <input type="number" id="defense" name="defenseLevel" ngModel="50">
+          </div>
+        </div>
+
+        <div class="additional-field">
+          <div class="title">ADDITIONAL PARAMETERS</div>
+          <div class="left">
+            <div class="field-name">FIELD NAME</div>
+            <input type="text" name="fieldName" [(ngModel)]="fieldName">
+          </div>
+          <div class="right">
+              <div class="field-value">FIELD VALUE</div>
+              <input type="text" name="fieldValue" [(ngModel)]="fieldValue">
+          </div>
+        </div>
+        <div class="previewer" *ngIf="fieldName !== undefined && fieldValue !== undefined">
+          <span class="key">{{fieldName}}</span>
+          <span class="colon">:</span>
+          <span class="value">{{fieldValue}}</span>
+        </div>
+
+        <button type="submit">CREATE POKEMON</button>
+      </form>
+    </div>
+  </div>
+</div>
