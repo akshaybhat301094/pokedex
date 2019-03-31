@@ -71,3 +71,18 @@
         } 
     }
 }
+
+@media screen and (max-width: 750px) {
+    .container {
+        .details {
+            width: calc(100vw - 10px);
+            height: 400px;
+            .upper {
+                height: 175px;
+                .showAll {
+                    padding-top: 70px;
+                }
+            }
+        }
+    }
+}
